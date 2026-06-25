@@ -1,0 +1,14 @@
+class Solution {
+    public char repeatedCharacter(String s) {
+        int seenMask = 0;
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+            int bit = 1 << (ch - 'a');
+            if ((seenMask & bit) != 0) {
+                return ch;
+            }
+            seenMask |= bit;
+        }
+        return ' ';
+    }
+}
